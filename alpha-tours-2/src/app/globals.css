@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-emerald: #0f3d2e;
+  --color-emerald-deep: #0a2a20;
+  --color-gold: #b89968;
+  --color-charcoal: #2e2a26;
+  --color-ivory: #f4efe6;
+  --color-ivory-light: #faf6ef;
+  --color-stone: #c7bfb3;
+  --color-muted: #6b655e;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-ivory-light);
+    color: var(--color-charcoal);
+    font-family: var(--font-body), Inter, system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11", "lnum";
+  }
+
+  ::selection {
+    background-color: var(--color-emerald);
+    color: var(--color-ivory-light);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+    color: var(--color-emerald);
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background-color: rgba(184, 153, 104, 0.35);
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-eyebrow uppercase tracking-widest text-gold font-sans font-medium;
+  }
+
+  .editorial-rule {
+    @apply h-px w-12 bg-gold/60;
+  }
+
+  .container-editorial {
+    @apply mx-auto w-full max-w-editorial px-6 sm:px-8 lg:px-12;
+  }
+
+  .prose-editorial {
+    @apply max-w-prose text-charcoal/85 leading-relaxed text-[1.0625rem];
+  }
+
+  .link-underline {
+    @apply relative inline-block pb-0.5 transition-colors duration-300;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+  }
+
+  .link-underline:hover {
+    color: var(--color-gold);
+  }
+}
+
+@layer utilities {
+  .atmosphere-emerald {
+    background-color: #0a2a20;
+    background-image:
+      radial-gradient(120% 80% at 50% 0%, rgba(184, 153, 104, 0.10), transparent 60%),
+      radial-gradient(80% 60% at 50% 100%, rgba(15, 61, 46, 0.95), rgba(10, 42, 32, 1)),
+      linear-gradient(180deg, rgba(10, 42, 32, 0.85), rgba(46, 42, 38, 0.95));
+  }
+
+  .atmosphere-night {
+    background-color: #0a2a20;
+    background-image:
+      radial-gradient(60% 50% at 20% 30%, rgba(184, 153, 104, 0.12), transparent 65%),
+      radial-gradient(80% 70% at 80% 80%, rgba(15, 61, 46, 0.9), rgba(10, 42, 32, 1)),
+      linear-gradient(165deg, rgba(46, 42, 38, 0.85), rgba(10, 42, 32, 0.95));
+  }
+
+  .atmosphere-stone {
+    background-color: #efe7d8;
+    background-image:
+      radial-gradient(100% 80% at 50% 0%, rgba(184, 153, 104, 0.18), transparent 60%),
+      radial-gradient(80% 60% at 50% 100%, rgba(199, 191, 179, 0.8), rgba(244, 239, 230, 1));
+  }
+
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.045;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
