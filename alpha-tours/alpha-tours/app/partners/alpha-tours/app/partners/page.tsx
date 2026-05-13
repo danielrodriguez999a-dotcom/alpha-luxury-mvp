@@ -1,4 +1,5 @@
-import { Container } from "@/components/Container";
+export default function PartnersPage()
+  import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { site } from "@/lib/site";
 
